@@ -39,18 +39,18 @@ CREATE TABLE `barang` (
   `harga_jual` varchar(255) NOT NULL,
   `stok` text NOT NULL,
   `upload_gambar` varchar(200) DEFAULT NULL,
-  `tgl_input` datetime NOT NULL DEFAULT current_timestamp(),
-  `tgl_update` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tgl_input` datetime NOT NULL,
+  `tgl_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id`, `kode_barang`, `nama_barang`, `id_kategori`, `id_supplier`, `id_merk`, `id_satuan`, `harga_beli`, `harga_jual`, `stok`, `upload_gambar`, `tgl_input`, `tgl_update`) VALUES
-(25, 'BR001', 'Buku tulis kiky 40 lembar-1234', 2, 25, 29, 1, '2000', '5000', '99', '6799fdeb2565f.jpg', '2025-01-29 17:07:22', '2025-01-29 17:28:12'),
-(26, 'BR002', 'Pensil Faber Castell 2B', 2, 28, 32, 1, '1500', '3000', '99', '', '2025-01-29 17:25:23', '2025-01-29 17:28:12'),
-(27, 'BR003', 'Pena Joyko Blue 0.5mm', 2, 29, 33, 1, '900', '1500', '119', '', '2025-01-29 17:27:07', '2025-01-29 17:28:12');
+-- INSERT INTO `barang` (`id`, `kode_barang`, `nama_barang`, `id_kategori`, `id_supplier`, `id_merk`, `id_satuan`, `harga_beli`, `harga_jual`, `stok`, `upload_gambar`, `tgl_input`, `tgl_update`) VALUES
+-- (25, 'BR001', 'Buku tulis kiky 40 lembar-1234', 2, 25, 29, 1, '2000', '5000', '99', '6799fdeb2565f.jpg', '2025-01-29 17:07:22', '2025-01-29 17:28:12'),
+-- (26, 'BR002', 'Pensil Faber Castell 2B', 2, 28, 32, 1, '1500', '3000', '99', '', '2025-01-29 17:25:23', '2025-01-29 17:28:12'),
+-- (27, 'BR003', 'Pena Joyko Blue 0.5mm', 2, 29, 33, 1, '900', '1500', '119', '', '2025-01-29 17:27:07', '2025-01-29 17:28:12');
 
 -- --------------------------------------------------------
 
@@ -61,16 +61,16 @@ INSERT INTO `barang` (`id`, `kode_barang`, `nama_barang`, `id_kategori`, `id_sup
 CREATE TABLE `kategori` (
   `id` int(11) NOT NULL,
   `nama_kategori` varchar(100) NOT NULL,
-  `tgl_input` datetime NOT NULL DEFAULT current_timestamp(),
-  `tgl_update` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tgl_input` datetime NOT NULL,
+  `tgl_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori` (`id`, `nama_kategori`, `tgl_input`, `tgl_update`) VALUES
-(2, 'Alat Tulis Kantor', '2025-01-27 01:26:43', '2025-01-29 17:03:31');
+-- INSERT INTO `kategori` (`id`, `nama_kategori`, `tgl_input`, `tgl_update`) VALUES
+-- (2, 'Alat Tulis Kantor', '2025-01-27 01:26:43', '2025-01-29 17:03:31');
 
 -- --------------------------------------------------------
 
@@ -133,18 +133,18 @@ CREATE TABLE `merk` (
   `id` int(11) NOT NULL,
   `kode_merk` varchar(100) NOT NULL,
   `nama_merk` varchar(100) NOT NULL,
-  `tgl_input` datetime NOT NULL DEFAULT current_timestamp(),
-  `tgl_update` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tgl_input` datetime NOT NULL,
+  `tgl_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `merk`
 --
 
-INSERT INTO `merk` (`id`, `kode_merk`, `nama_merk`, `tgl_input`, `tgl_update`) VALUES
-(29, 'MR001', 'KIKY', '2025-01-27 01:09:51', '2025-01-29 17:04:35'),
-(32, 'MR002', 'Faber Castell', '2025-01-29 17:23:04', '2025-01-29 17:23:04'),
-(33, 'MR003', 'Joyko', '2025-01-29 17:23:14', '2025-01-29 17:23:14');
+-- INSERT INTO `merk` (`id`, `kode_merk`, `nama_merk`, `tgl_input`, `tgl_update`) VALUES
+-- (29, 'MR001', 'KIKY', '2025-01-27 01:09:51', '2025-01-29 17:04:35'),
+-- (32, 'MR002', 'Faber Castell', '2025-01-29 17:23:04', '2025-01-29 17:23:04'),
+-- (33, 'MR003', 'Joyko', '2025-01-29 17:23:14', '2025-01-29 17:23:14');
 
 -- --------------------------------------------------------
 
@@ -451,17 +451,17 @@ CREATE TABLE `pelanggan` (
   `nama_pelanggan` varchar(100) NOT NULL,
   `alamat` varchar(200) NOT NULL,
   `telepon` varchar(20) NOT NULL,
-  `tgl_input` datetime NOT NULL DEFAULT current_timestamp(),
-  `tgl_update` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tgl_input` datetime NOT NULL,
+  `tgl_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`id`, `kode_pelanggan`, `nama_pelanggan`, `alamat`, `telepon`, `tgl_input`, `tgl_update`) VALUES
-(2, 'PL001', 'Customer UMUM', 'NON-Member', '0', '2025-01-27 16:24:14', '2025-01-29 17:05:17'),
-(4, 'PL002', 'Steven', 'Jl, Member1', '0808', '2025-01-29 17:05:50', '2025-01-29 17:05:50');
+-- INSERT INTO `pelanggan` (`id`, `kode_pelanggan`, `nama_pelanggan`, `alamat`, `telepon`, `tgl_input`, `tgl_update`) VALUES
+-- (2, 'PL001', 'Customer UMUM', 'NON-Member', '0', '2025-01-27 16:24:14', '2025-01-29 17:05:17'),
+-- (4, 'PL002', 'Steven', 'Jl, Member1', '0808', '2025-01-29 17:05:50', '2025-01-29 17:05:50');
 
 -- --------------------------------------------------------
 
@@ -504,17 +504,17 @@ CREATE TABLE `satuan` (
   `id` int(11) NOT NULL,
   `kode_satuan` varchar(100) NOT NULL,
   `nama_satuan` varchar(100) NOT NULL,
-  `tgl_input` datetime NOT NULL DEFAULT current_timestamp(),
-  `tgl_update` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tgl_input` datetime NOT NULL,
+  `tgl_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `satuan`
 --
 
-INSERT INTO `satuan` (`id`, `kode_satuan`, `nama_satuan`, `tgl_input`, `tgl_update`) VALUES
-(1, 'S001', 'PCS', '2025-01-27 00:01:36', '2025-01-27 00:37:16'),
-(5, 'S002', 'LUSIN', '2025-01-29 17:23:46', '2025-01-29 17:24:00');
+-- INSERT INTO `satuan` (`id`, `kode_satuan`, `nama_satuan`, `tgl_input`, `tgl_update`) VALUES
+-- (1, 'S001', 'PCS', '2025-01-27 00:01:36', '2025-01-27 00:37:16'),
+-- (5, 'S002', 'LUSIN', '2025-01-29 17:23:46', '2025-01-29 17:24:00');
 
 -- --------------------------------------------------------
 
@@ -528,18 +528,18 @@ CREATE TABLE `supplier` (
   `nama_supplier` varchar(100) NOT NULL,
   `alamat` varchar(200) NOT NULL,
   `telepon` varchar(20) NOT NULL,
-  `tgl_input` datetime NOT NULL DEFAULT current_timestamp(),
-  `tgl_update` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `tgl_input` datetime NOT NULL,
+  `tgl_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `supplier`
 --
 
-INSERT INTO `supplier` (`id`, `kode_supplier`, `nama_supplier`, `alamat`, `telepon`, `tgl_input`, `tgl_update`) VALUES
-(25, 'SP001', 'PT. Kiky', 'Jl Supplier1', '08123', '2025-01-27 00:41:01', '2025-01-29 17:25:43'),
-(28, 'SP002', 'PT. Faber Castell', 'Faber Castell', '0811', '2025-01-29 17:22:34', '2025-01-29 17:25:34'),
-(29, 'SP003', 'PT. Joyko', 'Joyko', '0811', '2025-01-29 17:22:47', '2025-01-29 17:25:51');
+-- INSERT INTO `supplier` (`id`, `kode_supplier`, `nama_supplier`, `alamat`, `telepon`, `tgl_input`, `tgl_update`) VALUES
+-- (25, 'SP001', 'PT. Kiky', 'Jl Supplier1', '08123', '2025-01-27 00:41:01', '2025-01-29 17:25:43'),
+-- (28, 'SP002', 'PT. Faber Castell', 'Faber Castell', '0811', '2025-01-29 17:22:34', '2025-01-29 17:25:34'),
+-- (29, 'SP003', 'PT. Joyko', 'Joyko', '0811', '2025-01-29 17:22:47', '2025-01-29 17:25:51');
 
 -- --------------------------------------------------------
 

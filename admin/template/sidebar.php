@@ -69,6 +69,11 @@
             <i class="fas fa-fw fa-cogs"></i>
             <span>Pengaturan Toko</span></a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="https://smartposai.vercel.app/">
+            <i class="fas fa-fw fa-robot"></i>
+            <span>Smart PoS AI</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
